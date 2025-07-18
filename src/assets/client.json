@@ -1,0 +1,15 @@
+{
+  "name": "Bear River Bookkeeping",
+  "email": "bearriverbookkeeping@gmail.com",
+  "phoneForTel": "559-908-9795",
+  "phoneFormatted": "(559) 908-9795",
+  "address": {
+    "lineOne": "",
+    "lineTwo": "",
+    "city": "Rathdrum",
+    "state": "ID",
+    "zip": "83858",
+    "mapLink": "https://maps.app.goo.gl/umutohM9LfnrwpyMA"
+  },
+  "domain": "www.bearriverbookkeeping.com"
+}
