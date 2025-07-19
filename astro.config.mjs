@@ -1,5 +1,9 @@
-// @ts-check
-import { defineConfig } from 'astro/config';
+// astro.config.mjs
+import { defineConfig } from "astro/config";
+import path from "path";
 
-// https://astro.build/config
-export default defineConfig({});
+export default defineConfig({
+  alias: {
+    "@": path.resolve("./src"),
+  },
+});
