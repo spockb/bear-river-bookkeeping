@@ -10,26 +10,32 @@ import SideBySideRev from '../components/SideBySideRev.astro';
 	title=`Services | Professional Bookkeeping Services | Bear River Bookkeeping | Coeur d'Alene, ID`
 	description=""
 	>
-    <Landing title="Services" image="/river.jpg" alt="river"/>
-    <!-- Normal layout (image first, then text) -->
-<SideBySide 
-topper="About Us"
-title="Your Title"
+    <Landing title="Services" image="/images/river.jpg" alt="river"/>
+
+<SideBySide
+img=""
+imgAlt=""
+imgWidth=""
+imgHeight="" 
+topper="Services"
+title="Monthly Reconciliation"
 text1="First paragraph"
 text2="Second paragraph"
 buttonRef="/contact"
 buttonText="Contact Us"
 />
 
-<!-- Reversed layout (text first, then image) -->
-<SideBySideRev 
-topper="About Us"
+<SideBySideRev
+img=""
+imgAlt=""
+imgWidth=""
+imgHeight="" 
+topper="Services"
 title="Your Title"
 text1="First paragraph"
 text2="Second paragraph"
 buttonRef="/contact"
 buttonText="Contact Us"
-reverse={true}
 />
     <CTA />
 
