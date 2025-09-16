@@ -1,5 +1,5 @@
 ---
-
+import client from "../assets/client.json"
 ---
 
 <!-- ============================================ -->
@@ -41,10 +41,10 @@
                 <span class="cs-header">Contact</span>
             </li>
             <li class="cs-contact-li">
-                <a class="cs-contact-link" href="tel: 123-456-7890">(123) 456-7890</a>
+                <a class="cs-contact-link" href=`tel: ${client.phoneForTel}`>{client.phoneFormatted}</a>
             </li>
             <li class="cs-contact-li">
-                <a class="cs-contact-link" href="mailto:info@codestitch.com">info@codestitch.com</a>
+                <a class="cs-contact-link" href=`mailto:${client.email}`>{client.email}</a>
             </li>
             <!-- Social Media -->
             <li class="cs-contact-li cs-social-group">

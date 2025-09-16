@@ -1,5 +1,5 @@
 ---
-
+import client from "../assets/client.json"
 ---
 
 <section id="contact-569">
@@ -9,11 +9,27 @@
                 <span class="cs-topper">Contact Us</span>
                 <h2 class="cs-title">Request A Quote</h2>
                 <p class="cs-text">
-                    Pellentesque sit amet porttitor eget dolor morbi non arcu. Vitae justo eget magna fermentum iaculis eu non
+                    Let's make your bookkeeping stress-free! Share a few details about your needs and we'll send over a personalized quote.
                 </p>
             </div>
             <!--Form-->
             <form class="cs-form" id="cs-form-569" name="Contact Form" method="post">
+                <!-- QuickBooks Online Confirmation -->
+                <div class="cs-label cs-checkbox-group">
+                    <label class="cs-checkbox-label">
+                        <input class="cs-checkbox-input" type="checkbox" name="quickbooks-confirmation" value="yes" required>
+                        <span class="cs-checkbox-text">I confirm that I am okay with using QuickBooks Online for my bookkeeping needs.</span>
+                    </label>
+                </div>
+                
+                <!-- Minimum Budget Confirmation -->
+                <div class="cs-label cs-checkbox-group">
+                    <label class="cs-checkbox-label">
+                        <input class="cs-checkbox-input" type="checkbox" name="budget-confirmation" value="yes" required>
+                        <span class="cs-checkbox-text">I confirm that I am comfortable with a minimum monthly price of $250.</span>
+                    </label>
+                </div>
+
                 <label class="cs-label">
                     Name
                     <input class="cs-input" required type="text" id="name-569" name="name" placeholder="Name">
@@ -41,21 +57,16 @@
             <!--Address-->
             <div class="cs-flex">
                 <span class="cs-header">Our Location</span>
-                <a href="" class="cs-link">123 Fake Mill Creek<br> Bark, USA 98082</a>
+                <a href="" class="cs-link"><br> {client.address.city}, {client.address.state} {client.address.zip}</a>
             </div>
             <!--Contacts-->
             <div class="cs-flex">
                 <span class="cs-header">Quick Contacts</span>
-                <a href="" class="cs-link">info@email.com</a>
-                <a href="tel:555-689-9566" class="cs-link cs-phone">+1 (555) 686-9566</a>
+                <a href=`mailto:${client.email}` class="cs-link">{client.email}</a>
+                <a href=`tel:${client.phoneForTel}` class="cs-link cs-phone">{client.phoneFormatted}</a>
             </div>
             <!--Social-->
             <ul class="cs-social">
-                <li class="cs-li">
-                    <a class="cs-social-link" href="" aria-label="visit twitter">
-                        <img class="cs-icon" src="https://csimg.nyc3.cdn.digitaloceanspaces.com/Contact-Page/twitter-gold.svg" alt="icon" width="18" height="15" decoding="async" aria-hidden="true">
-                    </a>
-                </li>
                 <li class="cs-li">
                     <a class="cs-social-link" href="" aria-label="visit facebook">
                         <img class="cs-icon" src="https://csimg.nyc3.cdn.digitaloceanspaces.com/Contact-Page/facebook-gold.svg" alt="icon" width="10" height="15" decoding="async" aria-hidden="true">
@@ -64,11 +75,6 @@
                 <li class="cs-li">
                     <a class="cs-social-link" href="" aria-label="visit linkedin">
                         <img class="cs-icon" src="https://csimg.nyc3.cdn.digitaloceanspaces.com/Contact-Page/linkedin-gold.svg" alt="icon" width="16" height="15" decoding="async" aria-hidden="true">
-                    </a>
-                </li>
-                <li class="cs-li">
-                    <a class="cs-social-link" href="" aria-label="visit youtube">
-                        <img class="cs-icon" src="https://csimg.nyc3.cdn.digitaloceanspaces.com/Contact-Page/youtube-gold.svg" alt="icon" width="21" height="15" decoding="async" aria-hidden="true">
                     </a>
                 </li>
             </ul>
@@ -159,6 +165,36 @@
         opacity: 0.6;
         font-size: 0.875rem;
     }
+    
+    /* Checkbox Styles */
+    #contact-569 .cs-checkbox-group {
+        width: 100%;
+        margin-bottom: 1rem;
+    }
+    #contact-569 .cs-checkbox-label {
+        display: flex;
+        align-items: flex-start;
+        gap: 0.75rem;
+        cursor: pointer;
+        font-size: clamp(0.875rem, 1.5vw, 1rem);
+        color: var(--headerColor);
+        line-height: 1.4;
+    }
+    #contact-569 .cs-checkbox-input {
+        width: 1.25rem;
+        height: 1.25rem;
+        margin: 0;
+        margin-top: 0.125rem;
+        accent-color: var(--secondary);
+        cursor: pointer;
+        flex-shrink: 0;
+    }
+    #contact-569 .cs-checkbox-text {
+        font-size: clamp(0.875rem, 1.5vw, 1rem);
+        color: var(--headerColor);
+        line-height: 1.4;
+    }
+    
     #contact-569 .cs-textarea {
         /* 120px - 140px */
         min-height: clamp(7.5rem, 28vw, 8.75rem);
@@ -291,6 +327,9 @@
 @media only screen and (min-width: 40.625rem) {
     #contact-569 .cs-label {
         width: 48.4%;
+    }
+    #contact-569 .cs-checkbox-group {
+        width: 100%;
     }
     #contact-569 .cs-message {
         width: 100%;
