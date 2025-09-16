@@ -1,0 +1,36 @@
+---
+import Layout from '../layouts/Layout.astro';
+import CTA from '../components/CTA.astro';
+import Landing from '../components/Landing.astro';
+import SideBySide from '../components/SideBySide.astro';
+import SideBySideRev from '../components/SideBySideRev.astro';
+---
+
+<Layout
+	title=`Services | Professional Bookkeeping Services | Bear River Bookkeeping | Coeur d'Alene, ID`
+	description=""
+	>
+    <Landing title="Services" image="/river.jpg" alt="river"/>
+    <!-- Normal layout (image first, then text) -->
+<SideBySide 
+topper="About Us"
+title="Your Title"
+text1="First paragraph"
+text2="Second paragraph"
+buttonRef="/contact"
+buttonText="Contact Us"
+/>
+
+<!-- Reversed layout (text first, then image) -->
+<SideBySideRev 
+topper="About Us"
+title="Your Title"
+text1="First paragraph"
+text2="Second paragraph"
+buttonRef="/contact"
+buttonText="Contact Us"
+reverse={true}
+/>
+    <CTA />
+
+</Layout>
