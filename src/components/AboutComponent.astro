@@ -1,5 +1,5 @@
 ---
-
+const { CTAtext, CTAlink } = Astro.props;
 ---
 
 <!-- ============================================ -->
@@ -36,7 +36,7 @@
                 <span class="cs-job">Owner & Lead Bookkeeper</span>
                 <img class="cs-quote-icon" loading="lazy" decoding="async" src="https://csimg.nyc3.digitaloceanspaces.com/SideBySide/quote-white.svg" alt="quote icon" width="136" height="77" aria-hidden="true">
             </div>
-            <a href="/about" class="cs-button-solid">About Us</a>
+            <a href={CTAlink} class="cs-button-solid">{CTAtext}</a>
         </div>
     </div>
 </section>
