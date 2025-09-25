@@ -35,13 +35,6 @@ const { description, title, preloadedImage } = Astro.props;
   <meta name="apple-mobile-web-app-title" content="Bear River Bookkeeping" />
   <link rel="manifest" href="/site.webmanifest" />
 
-    <!--For home page, use service keywords for the title, including location for SEO.
-    Other pages should just include the page name.
-    
-    EXAMPLE:
-    Home page - House Painting Contractors | Painters and Co. | TestCity, WA
-    About Page - About us | Painters and Co.
-    -->
     <title>
       {
         Astro.url.pathname === "/"
