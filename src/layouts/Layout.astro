@@ -24,8 +24,8 @@ const { description, title, preloadedImage } = Astro.props;
     <meta property="og:description" content={description} />
     <meta property="og:type" content="website" />
     <meta property="og:url" content={`https://${client.domain}${Astro.url.pathname}`} />
-    <meta property="og:image" content="/assets/images/logo-small.png" />
-    <meta property="og:image:secure_url" content="/assets/images/logo-small.png" />
+    <meta property="og:image" content={`https://${client.domain}/images/BearRiver.png`} />
+    <meta property="og:image:secure_url" content={`https://${client.domain}/images/BearRiver.png`} />
 
 	<!-- Favicons -->
   <link rel="icon" type="image/png" href="/favicon-96x96.png" sizes="96x96" />
