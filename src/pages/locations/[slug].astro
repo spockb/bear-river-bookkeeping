@@ -1,0 +1,43 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import Landing from "../../components/Landing.astro";
+import LocationContent from "../../components/LocationContent.astro";
+import Testimonials from "../../components/Testimonials.astro";
+import CTA from "../../components/CTA.astro";
+import riverImage from "../../assets/river.jpg";
+import locations from "../../data/locations.json";
+import { locationServiceNode } from "../../lib/schema.js";
+
+export function getStaticPaths() {
+	return locations.map((location) => ({
+		params: { slug: location.slug },
+		props: { location },
+	}));
+}
+
+const { location } = Astro.props;
+const path = `/locations/${location.slug}/`;
+---
+
+<Layout
+	title={location.metaTitle}
+	description={location.metaDescription}
+	breadcrumb={[
+		{ name: "Home", path: "/" },
+		{ name: "Service Areas", path: "/locations/" },
+		{ name: `${location.city}, ${location.state}`, path },
+	]}
+	extraSchema={[
+		locationServiceNode({
+			path,
+			city: location.city,
+			state: location.state,
+			description: location.metaDescription,
+		}),
+	]}
+	>
+	<Landing title={location.heading} image={riverImage} />
+	<LocationContent location={location} />
+	<Testimonials />
+	<CTA />
+</Layout>

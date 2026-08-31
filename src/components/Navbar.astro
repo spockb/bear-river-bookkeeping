@@ -1,5 +1,30 @@
 ---
 import navData from "../assets/navData.json";
+import locations from "../data/locations.json";
+import serviceDetails from "../data/services-detail.json";
+
+// Children come from the same data files that generate the pages, so the menu
+// can never list a page that does not exist.
+const dropdowns = {
+    "/services/": serviceDetails.map((service) => ({
+        key: service.navLabel,
+        url: `/services/${service.slug}/`,
+    })),
+    "/locations/": locations.map((location) => ({
+        key: `${location.city}, ${location.state}`,
+        url: `/locations/${location.slug}/`,
+    })),
+};
+
+const navItems = navData.map((entry) => ({
+    ...entry,
+    children: dropdowns[entry.url] ?? null,
+}));
+
+const isCurrent = (url) => Astro.url.pathname === url;
+const inSection = (entry) =>
+    isCurrent(entry.url) ||
+    (entry.children ?? []).some((child) => isCurrent(child.url));
 ---
 
 <!-- ============================================ -->
@@ -10,7 +35,7 @@ import navData from "../assets/navData.json";
     <div class="cs-container">
         <!--Nav Logo-->
         <a href="/" class="cs-logo" aria-label="back to home">
-            <img src="/images/BearRiver.png" alt="logo" width="1814" height="352" aria-hidden="true" decoding="async">
+            <img src="/images/BearRiver.png" alt="Bear River Bookkeeping" width="1814" height="352" decoding="async">
         </a>
         <!--Navigation List-->
         <nav class="cs-nav" role="navigation">
@@ -26,19 +51,51 @@ import navData from "../assets/navData.json";
               <div class="cs-ul-wrapper">
         <ul id="cs-expanded-ul" class="cs-ul">
           {
-            navData.map((entry) => (
-              <li class="cs-li">
-                <a
-                  href={entry.url}
-                  class:list={[
-                    "cs-li-link",
-                    { "cs-active": Astro.url.pathname === entry.url },
-                  ]}
-                >
-                  {entry.key}
-                </a>
-              </li>
-            ))
+            navItems.map((entry) =>
+              entry.children ? (
+                <li class="cs-li cs-dropdown">
+                  <div class="cs-drop-head">
+                    <a
+                      href={entry.url}
+                      class:list={["cs-li-link", { "cs-active": inSection(entry) }]}
+                    >
+                      {entry.key}
+                    </a>
+                    <button
+                      class="cs-drop-toggle"
+                      type="button"
+                      aria-expanded="false"
+                      aria-label={`Show ${entry.key} links`}
+                    >
+                      <svg class="cs-drop-arrow" width="12" height="8" viewBox="0 0 12 8" aria-hidden="true">
+                        <path d="M1 1.5 6 6.5l5-5" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round" />
+                      </svg>
+                    </button>
+                  </div>
+                  <ul class="cs-drop-ul">
+                    {entry.children.map((child) => (
+                      <li class="cs-drop-li">
+                        <a
+                          href={child.url}
+                          class:list={["cs-drop-link", { "cs-active": isCurrent(child.url) }]}
+                        >
+                          {child.key}
+                        </a>
+                      </li>
+                    ))}
+                  </ul>
+                </li>
+              ) : (
+                <li class="cs-li">
+                  <a
+                    href={entry.url}
+                    class:list={["cs-li-link", { "cs-active": isCurrent(entry.url) }]}
+                  >
+                    {entry.key}
+                  </a>
+                </li>
+              )
+            )
           }
         </ul>
       </div>
@@ -72,12 +129,35 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     }
 
-    const dropDowns = Array.from(document.querySelectorAll('#cs-navigation .cs-dropdown'));
-    for (const item of dropDowns) {
-        item.addEventListener('click', () => {
-            item.classList.toggle('cs-active');
+    // The toggle is a dedicated button, not the parent link — so tapping
+    // "Service Areas" on a phone still navigates to the hub page.
+    const dropdowns = Array.from(document.querySelectorAll('#cs-navigation .cs-dropdown'));
+    for (const dropdown of dropdowns) {
+        const toggle = dropdown.querySelector('.cs-drop-toggle');
+        if (!toggle) continue;
+
+        toggle.addEventListener('click', (event) => {
+            event.stopPropagation();
+            const open = dropdown.classList.toggle('cs-active');
+            toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
         });
     }
+
+    const closeAllDropdowns = () => {
+        for (const dropdown of dropdowns) {
+            dropdown.classList.remove('cs-active');
+            dropdown.querySelector('.cs-drop-toggle')?.setAttribute('aria-expanded', 'false');
+        }
+    };
+
+    document.addEventListener('keydown', (event) => {
+        if (event.key === 'Escape') closeAllDropdowns();
+    });
+
+    document.addEventListener('click', (event) => {
+        if (!(event.target instanceof Node)) return;
+        if (!CSnavbarMenu?.contains(event.target)) closeAllDropdowns();
+    });
 });
 
                                 
@@ -325,6 +405,74 @@ document.addEventListener("DOMContentLoaded", () => {
     display: none;
   }
 }
+/* Mobile - 1023px */
+@media only screen and (max-width: 63.9375rem) {
+  /* --- Dropdowns (mobile) --- */
+  #cs-navigation .cs-drop-head {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.35rem;
+  }
+  #cs-navigation .cs-drop-toggle {
+    width: 2rem;
+    height: 2rem;
+    padding: 0;
+    margin: 0;
+    background: transparent;
+    border: none;
+    border-radius: 0.25rem;
+    color: #1a1a1a;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+  #cs-navigation .cs-drop-toggle:focus-visible {
+    outline: 2px solid var(--primary);
+    outline-offset: 2px;
+  }
+  #cs-navigation .cs-drop-arrow {
+    transition: transform 0.3s;
+  }
+  #cs-navigation .cs-dropdown.cs-active .cs-drop-arrow {
+    transform: rotate(180deg);
+  }
+  #cs-navigation .cs-drop-ul {
+    width: 100%;
+    height: 0;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    opacity: 0;
+    visibility: hidden;
+    transition: height 0.3s, opacity 0.3s, visibility 0.3s;
+  }
+  #cs-navigation .cs-dropdown.cs-active .cs-drop-ul {
+    height: auto;
+    margin-top: 0.5rem;
+    padding: 0.25rem 0;
+    opacity: 1;
+    visibility: visible;
+  }
+  #cs-navigation .cs-drop-li {
+    list-style: none;
+    text-align: center;
+  }
+  #cs-navigation .cs-drop-link {
+    font-size: 1rem;
+    line-height: 2.25em;
+    text-decoration: none;
+    color: #767676;
+    display: block;
+  }
+  #cs-navigation .cs-drop-link:hover,
+  #cs-navigation .cs-drop-link.cs-active {
+    color: var(--primary);
+  }
+}
+
 /*-- -------------------------- -->
 <---     Desktop Navigation     -->
 <--- -------------------------- -*/
@@ -450,6 +598,89 @@ document.addEventListener("DOMContentLoaded", () => {
   #cs-navigation .cs-button-solid:hover:before {
     width: 100%;
   }
+
+  /* --- Dropdowns (desktop) --- */
+  #cs-navigation .cs-dropdown {
+    position: relative;
+  }
+  #cs-navigation .cs-drop-head {
+    height: 100%;
+    display: flex;
+    align-items: center;
+    gap: 0.3rem;
+  }
+  #cs-navigation .cs-drop-toggle {
+    width: 1.25rem;
+    height: 1.25rem;
+    padding: 0;
+    background: transparent;
+    border: none;
+    color: var(--bodyTextColor);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  #cs-navigation .cs-drop-toggle:focus-visible {
+    outline: 2px solid var(--primary);
+    outline-offset: 2px;
+  }
+  #cs-navigation .cs-drop-arrow {
+    transition: transform 0.3s;
+  }
+  #cs-navigation .cs-dropdown:hover .cs-drop-arrow,
+  #cs-navigation .cs-dropdown:focus-within .cs-drop-arrow,
+  #cs-navigation .cs-dropdown.cs-active .cs-drop-arrow {
+    transform: rotate(180deg);
+  }
+  #cs-navigation .cs-drop-ul {
+    min-width: 13.75rem;
+    margin: 0;
+    padding: 0.5rem 0;
+    background-color: #fff;
+    box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+    border-radius: 0.25rem;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    z-index: 100;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-0.5rem);
+    transition: opacity 0.3s, visibility 0.3s, transform 0.3s;
+  }
+  /* Hover for mice, focus-within for keyboards, cs-active for the button */
+  #cs-navigation .cs-dropdown:hover .cs-drop-ul,
+  #cs-navigation .cs-dropdown:focus-within .cs-drop-ul,
+  #cs-navigation .cs-dropdown.cs-active .cs-drop-ul {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+  }
+  #cs-navigation .cs-drop-li {
+    list-style: none;
+  }
+  #cs-navigation .cs-drop-link {
+    font-size: 0.9375rem;
+    line-height: 1.5em;
+    text-decoration: none;
+    color: var(--bodyTextColor);
+    padding: 0.5rem 1.25rem;
+    display: block;
+    white-space: nowrap;
+    transition: background-color 0.3s, color 0.3s;
+  }
+  #cs-navigation .cs-drop-link:hover,
+  #cs-navigation .cs-drop-link.cs-active {
+    background-color: #f4f8f8;
+    color: var(--primary);
+  }
 }
-                                
+
+  @media (prefers-reduced-motion: reduce) {
+    #cs-navigation .cs-drop-ul,
+    #cs-navigation .cs-drop-arrow {
+      transition: none;
+    }
+  }
 </style>

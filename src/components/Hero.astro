@@ -1,10 +1,19 @@
 ---
-import heroImage from "/river.jpg"
-import { Image } from "astro:assets";
-import { Picture } from 'astro:assets';
+import { Picture, getImage } from "astro:assets";
+import riverImage from "../assets/river.jpg";
+
+// Above 1600px the <img> is hidden and a CSS background takes over for the
+// parallax effect. getImage() gives that rule an optimized file to point at
+// rather than the raw 1.5 MB original.
+const parallax = await getImage({
+  src: riverImage,
+  format: "webp",
+  width: 2250,
+  quality: 68,
+});
 ---
 
-<section id="hero-1619">
+<section id="hero-1619" style={`--heroParallax: url(${parallax.src})`}>
     <div class="cs-container">
         <div class="cs-content">
             <span class="cs-topper">
@@ -31,32 +40,32 @@ import { Picture } from 'astro:assets';
                 </svg>
             </span>
             <h1 class="cs-title">Stop Stressing About Your Books - Focus on Growing Your Business</h1>
-            <a href="/contact" class="cs-button-solid">Get Your Free Consultation</a>
+            <a href="/contact/" class="cs-button-solid">Get Your Free Consultation</a>
         </div>
         <ul class="cs-card-group">
             <li class="cs-item">
-                <img class="cs-icon" loading="lazy" decoding="async" src="https://csimg.nyc3.cdn.digitaloceanspaces.com/Images/Icons/check-circle.svg" alt="icon" width="48" height="48">
+                <img class="cs-icon" loading="lazy" decoding="async" src="https://csimg.nyc3.cdn.digitaloceanspaces.com/Images/Icons/check-circle.svg" alt="" width="48" height="48">
                 <h3 class="cs-h3">25+ Years of Proven Experience</h3>
                 <p class="cs-item-text">
                     With a quarter-century of bookkeeping expertise and 17 years in a CPA office, we know exactly what small businesses need to stay financially organized and tax-ready.
                 </p>
             </li>
             <li class="cs-item">
-                <img class="cs-icon" loading="lazy" decoding="async" src="https://csimg.nyc3.cdn.digitaloceanspaces.com/Images/Icons/speedometer.svg" alt="icon" width="48" height="48">
+                <img class="cs-icon" loading="lazy" decoding="async" src="https://csimg.nyc3.cdn.digitaloceanspaces.com/Images/Icons/speedometer.svg" alt="" width="48" height="48">
                 <h3 class="cs-h3">Specialized in Service Businesses</h3>
                 <p class="cs-item-text">
                     We understand the unique challenges facing electricians, contractors, and other skilled trade businesses. Your industry-specific needs are our specialty.
                 </p>
             </li>
             <li class="cs-item">
-                <img class="cs-icon" loading="lazy" decoding="async" src="https://csimg.nyc3.cdn.digitaloceanspaces.com/Images/Icons/Like.svg" alt="icon" width="48" height="48">
+                <img class="cs-icon" loading="lazy" decoding="async" src="https://csimg.nyc3.cdn.digitaloceanspaces.com/Images/Icons/Like.svg" alt="" width="48" height="48">
                 <h3 class="cs-h3">Stress-Free Financial Management</h3>
                 <p class="cs-item-text">
                     Stop losing sleep over messy books. We handle your financial recordkeeping so you can focus on what you do best - running and growing your business.
                 </p>
             </li>
             <li class="cs-item">
-                <img class="cs-icon" loading="lazy" decoding="async" src="https://csimg.nyc3.cdn.digitaloceanspaces.com/Images/Icons/Like.svg" alt="icon" width="48" height="48">
+                <img class="cs-icon" loading="lazy" decoding="async" src="https://csimg.nyc3.cdn.digitaloceanspaces.com/Images/Icons/Like.svg" alt="" width="48" height="48">
                 <h3 class="cs-h3">Always Tax-Ready</h3>
                 <p class="cs-item-text">
                     Thanks to our extensive CPA office experience, your books will be structured perfectly for tax season, saving you time and money every year.
@@ -69,9 +78,18 @@ import { Picture } from 'astro:assets';
     <picture class="cs-background">
         <!-- <source media="(max-width: 600px)" srcset="https://csimg.nyc3.cdn.digitaloceanspaces.com/Images/People/meeting7-m.jpeg">
         <source media="(min-width: 601px)" srcset="https://csimg.nyc3.cdn.digitaloceanspaces.com/Images/People/meeting7.jpg"> -->
-        <img decoding="async" src='/images/river.jpg' alt="beautiful mountain river" width="2250" height="1500" aria-hidden="true">
+        <Picture
+            src={riverImage}
+            formats={["avif", "webp"]}
+            widths={[640, 960, 1280, 1920]}
+            sizes="100vw"
+            alt=""
+            aria-hidden="true"
+            loading="eager"
+            decoding="async"
+            fetchpriority="high"
+        />
     </picture>
-    <!-- <Picture class="cs-background" src={heroImage} alt="beautiful mountain river" aria-hidden="true"/> -->
 </section>
                                 
 
@@ -300,7 +318,7 @@ import { Picture } from 'astro:assets';
 /* Large Desktop Parallax Effect - 100px */
 @media only screen and (min-width: 100rem) {
   #hero-1619 .cs-background {
-    background: url('/images/river.jpg');
+    background: var(--heroParallax);
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;

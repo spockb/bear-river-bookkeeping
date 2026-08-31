@@ -1,0 +1,403 @@
+---
+import client from "../assets/client.json";
+
+const { service } = Astro.props;
+const {
+    topper, name, intro,
+    signalsHeading, signals,
+    processHeading, process,
+    includedHeading, included,
+    faqs,
+} = service;
+---
+
+<section id="service-detail">
+    <div class="sd-container">
+        <div class="sd-main">
+            <span class="cs-topper">{topper}</span>
+            <h2 class="cs-title">{name}</h2>
+            {intro.map((paragraph) => <p class="cs-text sd-intro">{paragraph}</p>)}
+
+            <h3 class="sd-heading">{signalsHeading}</h3>
+            <ul class="sd-signals">
+                {signals.map((signal) => <li>{signal}</li>)}
+            </ul>
+
+            <h3 class="sd-heading">{processHeading}</h3>
+            <ol class="sd-process">
+                {
+                    process.map((step) => (
+                        <li>
+                            <h4>{step.title}</h4>
+                            <p>{step.body}</p>
+                        </li>
+                    ))
+                }
+            </ol>
+
+            <h3 class="sd-heading">Common questions</h3>
+            <ul class="sd-faq">
+                {
+                    faqs.map((faq, i) => (
+                        <li class:list={["sd-faq-item", { active: i === 0 }]}>
+                            <button class="sd-faq-button" type="button" aria-expanded={i === 0 ? "true" : "false"}>
+                                <span>{faq.question}</span>
+                                <svg class="sd-faq-icon" width="16" height="16" viewBox="0 0 16 16" aria-hidden="true">
+                                    <path d="M8 3v10M3 8h10" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
+                                </svg>
+                            </button>
+                            <div class="sd-faq-answer"><p>{faq.answer}</p></div>
+                        </li>
+                    ))
+                }
+            </ul>
+        </div>
+
+        <aside class="sd-aside">
+            <div class="sd-card">
+                <h3>{includedHeading}</h3>
+                <ul class="sd-included">
+                    {included.map((item) => <li>{item}</li>)}
+                </ul>
+            </div>
+
+            <div class="sd-card sd-card-cta">
+                <h3>Not sure where you stand?</h3>
+                <p>
+                    The first conversation is free and there is nothing attached to it. Tell us
+                    what your books look like right now and we will tell you what the work
+                    actually involves.
+                </p>
+                <a href="/contact/" class="sd-button">Request a free consultation</a>
+                <a href={`tel:${client.phoneForTel}`} class="sd-phone">{client.phoneFormatted}</a>
+            </div>
+        </aside>
+    </div>
+</section>
+
+<script>
+    const items = Array.from(document.querySelectorAll<HTMLElement>(".sd-faq-item"));
+    for (const item of items) {
+        const button = item.querySelector<HTMLButtonElement>(".sd-faq-button");
+        button?.addEventListener("click", () => {
+            const open = item.classList.toggle("active");
+            button.setAttribute("aria-expanded", open ? "true" : "false");
+        });
+    }
+</script>
+
+<style>
+    #service-detail {
+        padding: var(--sectionPadding);
+    }
+
+    #service-detail .sd-container {
+        width: 100%;
+        max-width: 80rem;
+        margin: auto;
+        display: flex;
+        flex-direction: column;
+        gap: 3rem;
+    }
+
+    #service-detail .sd-main {
+        max-width: 43.75rem;
+    }
+
+    #service-detail .sd-intro + .sd-intro {
+        margin-top: 1rem;
+    }
+
+    #service-detail .sd-heading {
+        font-size: 1.25rem;
+        line-height: 1.3em;
+        font-weight: 700;
+        margin: 2.75rem 0 1.15rem 0;
+        color: var(--headerColor);
+    }
+
+    /* Signals */
+    #service-detail .sd-signals {
+        margin: 0;
+        padding: 1.5rem;
+        list-style: none;
+        background-color: var(--secondaryLight);
+        border-left: 4px solid var(--primary);
+        border-radius: 0.25rem;
+        display: flex;
+        flex-direction: column;
+        gap: 0.7rem;
+    }
+
+    #service-detail .sd-signals li {
+        font-size: 0.9688rem;
+        line-height: 1.5em;
+        color: var(--bodyTextColor);
+        padding-left: 1.6rem;
+        position: relative;
+    }
+
+    #service-detail .sd-signals li:before {
+        content: "";
+        width: 0.5rem;
+        height: 0.85rem;
+        border: solid var(--primary);
+        border-width: 0 2px 2px 0;
+        transform: rotate(45deg);
+        position: absolute;
+        left: 0.25rem;
+        top: 0.2rem;
+    }
+
+    /* Process — numbered because these steps genuinely run in order */
+    #service-detail .sd-process {
+        margin: 0;
+        padding: 0;
+        list-style: none;
+        counter-reset: sd-step;
+    }
+
+    #service-detail .sd-process li {
+        counter-increment: sd-step;
+        position: relative;
+        padding: 0 0 1.75rem 3.25rem;
+        margin-left: 0.9rem;
+        border-left: 1px solid #dfe7e7;
+    }
+
+    #service-detail .sd-process li:last-child {
+        border-left-color: transparent;
+        padding-bottom: 0;
+    }
+
+    #service-detail .sd-process li:before {
+        content: counter(sd-step);
+        position: absolute;
+        left: -0.9rem;
+        top: -0.15rem;
+        width: 1.8rem;
+        height: 1.8rem;
+        border-radius: 50%;
+        background-color: #fff;
+        border: 1px solid var(--primary);
+        color: var(--primary);
+        font-size: 0.8125rem;
+        font-weight: 700;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    #service-detail .sd-process h4 {
+        font-size: 1.0625rem;
+        line-height: 1.3em;
+        font-weight: 700;
+        margin: 0 0 0.4rem 0;
+        color: var(--headerColor);
+    }
+
+    #service-detail .sd-process p {
+        font-size: 0.9688rem;
+        line-height: 1.5em;
+        margin: 0;
+        color: var(--bodyTextColor);
+    }
+
+    /* FAQ accordion */
+    #service-detail .sd-faq {
+        margin: 0;
+        padding: 0;
+        list-style: none;
+        border-top: 1px solid #dfe7e7;
+    }
+
+    #service-detail .sd-faq-item {
+        border-bottom: 1px solid #dfe7e7;
+    }
+
+    #service-detail .sd-faq-button {
+        width: 100%;
+        margin: 0;
+        padding: 1.05rem 0;
+        background: transparent;
+        border: none;
+        font-family: inherit;
+        font-size: 1rem;
+        font-weight: 700;
+        line-height: 1.4em;
+        text-align: left;
+        color: var(--headerColor);
+        cursor: pointer;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 1rem;
+    }
+
+    #service-detail .sd-faq-button:hover {
+        color: var(--primary);
+    }
+
+    #service-detail .sd-faq-button:focus-visible {
+        outline: 2px solid var(--primary);
+        outline-offset: 2px;
+    }
+
+    #service-detail .sd-faq-icon {
+        flex-shrink: 0;
+        color: var(--primary);
+        transition: transform 0.3s;
+    }
+
+    #service-detail .sd-faq-item.active .sd-faq-icon {
+        transform: rotate(45deg);
+    }
+
+    #service-detail .sd-faq-answer {
+        display: grid;
+        grid-template-rows: 0fr;
+        transition: grid-template-rows 0.3s;
+    }
+
+    #service-detail .sd-faq-item.active .sd-faq-answer {
+        grid-template-rows: 1fr;
+    }
+
+    #service-detail .sd-faq-answer p {
+        overflow: hidden;
+        min-height: 0;
+        font-size: 0.9688rem;
+        line-height: 1.5em;
+        margin: 0;
+        color: var(--bodyTextColor);
+    }
+
+    #service-detail .sd-faq-item.active .sd-faq-answer p {
+        padding-bottom: 1.1rem;
+    }
+
+    /* Aside */
+    #service-detail .sd-aside {
+        display: flex;
+        flex-direction: column;
+        gap: 1.5rem;
+    }
+
+    #service-detail .sd-card {
+        padding: 1.75rem;
+        border: 1px solid #e3e9e9;
+        border-radius: 0.5rem;
+        background-color: #fff;
+    }
+
+    #service-detail .sd-card h3 {
+        font-size: 1.125rem;
+        line-height: 1.3em;
+        font-weight: 700;
+        margin: 0 0 1rem 0;
+        color: var(--headerColor);
+    }
+
+    #service-detail .sd-included {
+        margin: 0;
+        padding: 0;
+        list-style: none;
+        display: flex;
+        flex-direction: column;
+        gap: 0.6rem;
+    }
+
+    #service-detail .sd-included li {
+        font-size: 0.9375rem;
+        line-height: 1.4em;
+        color: var(--bodyTextColor);
+        padding-left: 1.1rem;
+        position: relative;
+    }
+
+    #service-detail .sd-included li:before {
+        content: "";
+        width: 0.4rem;
+        height: 0.4rem;
+        border-radius: 50%;
+        background-color: var(--primary);
+        position: absolute;
+        left: 0;
+        top: 0.45rem;
+    }
+
+    #service-detail .sd-card-cta {
+        background-color: var(--headerColor);
+        border-color: var(--headerColor);
+    }
+
+    #service-detail .sd-card-cta h3 {
+        color: var(--bodyTextColorWhite);
+    }
+
+    #service-detail .sd-card-cta p {
+        font-size: 0.9375rem;
+        line-height: 1.5em;
+        margin: 0 0 1.25rem 0;
+        color: var(--bodyTextColorWhite);
+        opacity: 0.9;
+    }
+
+    #service-detail .sd-button {
+        font-size: 1rem;
+        font-weight: 700;
+        line-height: 2.875rem;
+        text-align: center;
+        text-decoration: none;
+        color: #fff;
+        background-color: var(--primary);
+        border-radius: 0.25rem;
+        padding: 0 1.25rem;
+        display: block;
+        transition: background-color 0.3s;
+    }
+
+    #service-detail .sd-button:hover {
+        background-color: #3c8c8c;
+    }
+
+    #service-detail .sd-phone {
+        font-size: 1rem;
+        font-weight: 700;
+        text-align: center;
+        text-decoration: none;
+        color: var(--bodyTextColorWhite);
+        margin-top: 0.9rem;
+        display: block;
+    }
+
+    #service-detail .sd-phone:hover {
+        text-decoration: underline;
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+        #service-detail .sd-faq-answer,
+        #service-detail .sd-faq-icon {
+            transition: none;
+        }
+    }
+
+    /* Small Desktop - 1024px */
+    @media only screen and (min-width: 64rem) {
+        #service-detail .sd-container {
+            flex-direction: row;
+            align-items: flex-start;
+            gap: 3.75rem;
+        }
+
+        #service-detail .sd-main {
+            flex: 1;
+        }
+
+        #service-detail .sd-aside {
+            flex: 0 0 21.25rem;
+            position: sticky;
+            top: 7rem;
+        }
+    }
+</style>

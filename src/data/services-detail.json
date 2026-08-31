@@ -1,0 +1,236 @@
+[
+  {
+    "slug": "clean-up",
+    "navLabel": "Clean-Up & Catch-Up",
+    "name": "Bookkeeping Clean-Up & Catch-Up",
+    "metaTitle": "Bookkeeping Clean-Up & Catch-Up Services",
+    "metaDescription": "Books months or years behind? We reconstruct missing periods, correct errors, and reconcile every account so you can file. North Idaho and nationwide.",
+    "heading": "Bookkeeping Clean-Up & Catch-Up",
+    "topper": "Behind on your books",
+    "intro": [
+      "If your books are months or years behind, you are in more common company than you think. It usually starts the same way — a busy season, a bookkeeper who left mid-year, a software migration that went sideways — and then the backlog gets big enough to feel unapproachable, so it keeps growing.",
+      "Clean-up is the work of making that backlog go away. We reconstruct the missing periods, correct what was recorded wrong, reconcile every account against the actual bank statements, and hand you back books you can file a return from."
+    ],
+    "signalsHeading": "You probably need clean-up if",
+    "signals": [
+      "You have unfiled tax returns because the books were never ready",
+      "Your bank balance and your accounting software have not agreed in months",
+      "A bookkeeper left mid-year and nobody picked it up",
+      "Your profit & loss shows numbers you know are wrong but cannot explain",
+      "There is a pile of uncategorized transactions sitting in QuickBooks",
+      "A lender, a buyer, or the IRS has asked you for financials",
+      "You switched accounting software and the history came across wrong"
+    ],
+    "processHeading": "How a clean-up runs",
+    "process": [
+      {
+        "title": "Diagnostic review",
+        "body": "Before quoting anything, we look at what actually exists — which accounts are connected, how far back the last clean reconciliation goes, what is sitting uncategorized, and which years were filed. This tells us the real size of the job, which is often smaller than owners fear and occasionally larger."
+      },
+      {
+        "title": "Written scope and fixed quote",
+        "body": "You get the scope and the price before any work starts. Clean-up is quoted as a project, separately from ongoing monthly work, so you are not signing up for an open-ended hourly meter on a job nobody has measured."
+      },
+      {
+        "title": "Reconstruction",
+        "body": "We pull bank and credit card statements for every month in scope, rebuild the transaction record, and categorize it against your actual business. Where documentation is genuinely missing, we tell you exactly what we need rather than guessing and moving on."
+      },
+      {
+        "title": "Correction and reconciliation",
+        "body": "Duplicates removed, misclassifications fixed, opening balances and equity accounts corrected, and every account reconciled month by month until the books agree with the statements. This is the part that makes the numbers trustworthy."
+      },
+      {
+        "title": "Handoff and prevention",
+        "body": "You get corrected financials for every period, a written summary of what was wrong, and a system set up so it does not happen again. Most clients move onto monthly service at this point. You are not obligated to."
+      }
+    ],
+    "includedHeading": "What a clean-up includes",
+    "included": [
+      "Bank and credit card reconciliation for every month in scope",
+      "Correction of miscategorized and duplicated transactions",
+      "Opening balance and equity account cleanup",
+      "Accounts receivable and accounts payable review",
+      "Corrected profit & loss and balance sheet for each period",
+      "A written summary of what was wrong and what changed",
+      "A handoff package formatted for your CPA or tax preparer"
+    ],
+    "faqs": [
+      {
+        "question": "How far back can you go?",
+        "answer": "As far as you need. We have taken on multi-year backlogs — one recent client was three years behind and audit-ready in under 90 days. The limiting factor is documentation, not elapsed time. If the bank statements exist, the books can be rebuilt."
+      },
+      {
+        "question": "How long does a clean-up take?",
+        "answer": "Most clean-up projects finish within 2-4 weeks, depending on the volume and complexity of your records. Multi-year projects take longer, and you get a timeline in writing before work begins."
+      },
+      {
+        "question": "What if I don't have all my receipts?",
+        "answer": "Bank and credit card statements are the backbone of a clean-up; receipts support them. We work with whatever records exist and tell you specifically what is missing, rather than leaving you to guess at it."
+      },
+      {
+        "question": "Will you work with my CPA or tax preparer?",
+        "answer": "Yes, and the handoff is built for it. With 17 years of experience inside a CPA office, we know what tax preparers need and how they want it structured."
+      },
+      {
+        "question": "What does clean-up cost?",
+        "answer": "Clean-up is quoted per project after the diagnostic review, separately from monthly service. The price depends on how many months are involved, how many accounts, and the transaction volume in each."
+      }
+    ]
+  },
+  {
+    "slug": "monthly-bookkeeping",
+    "navLabel": "Monthly Bookkeeping",
+    "name": "Monthly Bookkeeping & Financial Reports",
+    "metaTitle": "Monthly Bookkeeping & Financial Reports",
+    "metaDescription": "Monthly reconciliation and clear financial statements for small businesses. Errors caught the month they happen, and no scramble at tax time.",
+    "heading": "Monthly Bookkeeping & Financial Reports",
+    "topper": "Ongoing service",
+    "intro": [
+      "Monthly bookkeeping is the recurring work that keeps your records true: every transaction categorized, every account reconciled against its statement, and a set of financial statements produced while the details are still fresh in everyone's memory.",
+      "The real value is not the reports themselves. It is that errors get caught in the month they happen, when someone can still remember what the transaction was for. A mistake found in March costs a few minutes. The same mistake found the following February costs an afternoon of detective work, and sometimes an amended return."
+    ],
+    "signalsHeading": "Monthly service is probably right if",
+    "signals": [
+      "You are keeping up with the books yourself and would rather not be",
+      "You want to know your numbers before your CPA tells you in April",
+      "You are making decisions about hiring, equipment, or pricing and want real data behind them",
+      "A lender or landlord asks you for financials periodically",
+      "You have outgrown spreadsheets but are nowhere near needing a controller",
+      "You want tax season to be a non-event"
+    ],
+    "processHeading": "What each month looks like",
+    "process": [
+      {
+        "title": "Onboarding and chart of accounts review",
+        "body": "We connect to your accounting file and fix the structural problems that make reports hard to read. Most files we inherit have accumulated redundant or misused accounts over the years, and no amount of careful monthly work produces a clear report on top of a messy chart of accounts."
+      },
+      {
+        "title": "Transaction categorization",
+        "body": "Bank and credit card activity is categorized against your actual business rather than against generic software defaults. Anything genuinely ambiguous comes back to you as a single batch of questions once a month, not as a trickle of interruptions."
+      },
+      {
+        "title": "Reconciliation",
+        "body": "Every account is reconciled to its statement, every month. This is the step that gets skipped in do-it-yourself bookkeeping, and it is precisely the step that catches errors before they compound."
+      },
+      {
+        "title": "Statements and a plain-language note",
+        "body": "You get a profit & loss, a balance sheet, and a cash flow statement — plus a short note on anything worth your attention. Numbers without commentary are just a wall of numbers."
+      },
+      {
+        "title": "Year-end close and handoff",
+        "body": "The books close cleanly at year end and go to your tax preparer in the format they actually want, which is the difference between a quick return and a long one."
+      }
+    ],
+    "includedHeading": "What monthly service includes",
+    "included": [
+      "Categorization of all bank and credit card activity",
+      "Monthly reconciliation of every connected account",
+      "Profit & loss statement",
+      "Balance sheet",
+      "Cash flow statement",
+      "Ongoing chart of accounts maintenance",
+      "A written note each month on anything needing your attention",
+      "Year-end close and CPA handoff package"
+    ],
+    "faqs": [
+      {
+        "question": "Do I have to use QuickBooks Online?",
+        "answer": "QuickBooks Online is what we work in, and a subscription is required — the fee is yours and is not included in our pricing. If you are currently on something else, we will talk through whether migrating actually makes sense for you."
+      },
+      {
+        "question": "What does monthly bookkeeping cost?",
+        "answer": "On average our clients pay $300-$500 per month. The price depends on transaction volume, how many accounts are involved, and whether payroll is included. Every quote is individual, and you get it before you commit to anything."
+      },
+      {
+        "question": "How soon do I get my first report?",
+        "answer": "If your books are current when we start, the first month's statements arrive shortly after that month closes. If they are behind, we start with a clean-up project first so the ongoing reports are built on accurate history."
+      },
+      {
+        "question": "Will I be chasing you for updates?",
+        "answer": "No. Questions come to you batched once a month rather than one at a time, and the statements arrive on a predictable schedule without you having to ask."
+      },
+      {
+        "question": "Do I keep access to my own books?",
+        "answer": "Always. It is your accounting file and you retain full access to it. Nothing about working with us puts your own records behind a gate."
+      }
+    ]
+  },
+  {
+    "slug": "payroll-1099",
+    "navLabel": "Payroll & 1099 Filing",
+    "name": "Payroll Processing & 1099 Filing",
+    "metaTitle": "Payroll Processing & 1099 Filing",
+    "metaDescription": "Payroll processing and year-end 1099 filing for small businesses. Wages, withholding, quarterly returns, and contractor reporting handled on time.",
+    "heading": "Payroll Processing & 1099 Filing",
+    "topper": "Deadlines and compliance",
+    "intro": [
+      "Payroll is the part of bookkeeping with hard deadlines and real penalties attached to them. Wages have to be right, withholding has to be right, and quarterly filings have to land on time whether or not you had a brutal month.",
+      "We run payroll and handle year-end contractor reporting so those deadlines stop being something you carry. The work is deliberately front-loaded: the decisions that cause expensive problems are made at setup, not in January."
+    ],
+    "signalsHeading": "You probably need help with payroll if",
+    "signals": [
+      "You just hired your first employee and are not certain what changes",
+      "You pay subcontractors and are unsure which of them need a 1099",
+      "You have missed a quarterly filing or paid a late penalty",
+      "You have workers in more than one state",
+      "You are running payroll manually and it is eating real hours",
+      "Your contractor payments get reconstructed every January instead of tracked all year"
+    ],
+    "processHeading": "How payroll is handled",
+    "process": [
+      {
+        "title": "Setup and worker classification",
+        "body": "Getting classification right — employee versus independent contractor — is the single most consequential payroll decision you make, and by far the most expensive one to get wrong. We settle it before the first pay run rather than discovering it during an audit."
+      },
+      {
+        "title": "Each pay run",
+        "body": "Wages, hours, deductions, and withholding calculated and processed on whatever schedule you run — weekly, biweekly, semimonthly, or monthly."
+      },
+      {
+        "title": "Deposits and quarterly returns",
+        "body": "Payroll tax deposits made on schedule and quarterly returns filed on time, so nothing quietly accrues penalties in the background while you are busy running the business."
+      },
+      {
+        "title": "Year-round contractor tracking",
+        "body": "W-9s are collected when a contractor starts, not chased down in January when half of them have moved on and stopped answering. Payments are tracked by contractor throughout the year so the year-end filing is a report, not a reconstruction."
+      },
+      {
+        "title": "Year-end filings",
+        "body": "W-2s and 1099-NECs prepared, filed with the appropriate agencies, and distributed to your people ahead of the deadline."
+      }
+    ],
+    "includedHeading": "What payroll service includes",
+    "included": [
+      "Wage, hour, and deduction calculation",
+      "Federal and state income tax withholding",
+      "Payroll tax deposits on schedule",
+      "Quarterly payroll tax returns",
+      "New hire reporting",
+      "W-9 collection and year-round contractor tracking",
+      "Year-end W-2 preparation and filing",
+      "Year-end 1099-NEC preparation and filing"
+    ],
+    "faqs": [
+      {
+        "question": "Which contractors actually need a 1099?",
+        "answer": "Generally, unincorporated contractors you paid $600 or more during the year for services. There are exceptions running in both directions, which is exactly why classification and up-front W-9 collection matter more than the year-end filing itself."
+      },
+      {
+        "question": "What if I have workers in both Idaho and Washington?",
+        "answer": "Multi-state payroll is common along the state line. Where someone lives and where they perform the work drive different withholding and reporting obligations, and we set payroll up to capture both from the start rather than reconstructing crew assignments at year end."
+      },
+      {
+        "question": "I missed a quarterly filing. Can you fix it?",
+        "answer": "Yes. We will get the outstanding filings caught up and put a schedule in place so it does not repeat. Missed filings are far cheaper to address early than to leave accruing."
+      },
+      {
+        "question": "Do you handle workers' compensation reporting?",
+        "answer": "We track the underlying data it depends on — hours worked for Washington L&I, wages for Idaho — and prepare the reporting from it, so the numbers come out of your books rather than out of a spreadsheet somebody maintains by hand."
+      },
+      {
+        "question": "Can payroll be combined with monthly bookkeeping?",
+        "answer": "Yes, and it usually should be. Payroll run separately from the books creates reconciliation work later, because the payroll entries still have to land correctly in your financial statements."
+      }
+    ]
+  }
+]

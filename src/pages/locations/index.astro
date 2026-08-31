@@ -1,0 +1,161 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import Landing from "../../components/Landing.astro";
+import CTA from "../../components/CTA.astro";
+import riverImage from "../../assets/river.jpg";
+import locations from "../../data/locations.json";
+import client from "../../assets/client.json";
+---
+
+<Layout
+	title="Service Areas Across North Idaho & Spokane"
+	description="Bear River Bookkeeping serves Rathdrum, Coeur d'Alene, Post Falls, Hayden, Sandpoint, and Spokane in person, plus small businesses nationwide remotely."
+	breadcrumb={[
+		{ name: "Home", path: "/" },
+		{ name: "Service Areas", path: "/locations/" },
+	]}
+	>
+	<Landing title="Service Areas" image={riverImage} />
+
+	<section id="locations-index">
+		<div class="li-container">
+			<div class="li-content">
+				<span class="cs-topper">Where We Work</span>
+				<h2 class="cs-title">Bookkeeping across North Idaho and eastern Washington</h2>
+				<p class="cs-text">
+					We are based in {client.address.city}, {client.address.state}, and work with
+					businesses throughout Kootenai and Bonner counties and across the state line in
+					Spokane. Every area below has its own page covering what we do there and the
+					local considerations that come with it.
+				</p>
+				<p class="cs-text">
+					Not on this list? We also work remotely with small businesses across the
+					country, so distance is rarely the deciding factor.
+				</p>
+			</div>
+
+			<ul class="li-grid">
+				{
+					locations.map((location) => (
+						<li class="li-item">
+							<a href={`/locations/${location.slug}/`}>
+								<span class="li-county">{location.county}</span>
+								<h3>
+									{location.city}, {location.state}
+								</h3>
+								<p>{location.angleHeading}</p>
+								<span class="li-link">View {location.city} services</span>
+							</a>
+						</li>
+					))
+				}
+			</ul>
+		</div>
+	</section>
+
+	<CTA />
+</Layout>
+
+<style>
+	#locations-index {
+		padding: var(--sectionPadding);
+	}
+
+	#locations-index .li-container {
+		width: 100%;
+		max-width: 80rem;
+		margin: auto;
+	}
+
+	#locations-index .li-content {
+		max-width: 43.75rem;
+		margin-bottom: 3rem;
+	}
+
+	#locations-index .cs-text + .cs-text {
+		margin-top: 1rem;
+	}
+
+	#locations-index .li-grid {
+		margin: 0;
+		padding: 0;
+		list-style: none;
+		display: grid;
+		grid-template-columns: 1fr;
+		gap: 1.25rem;
+	}
+
+	#locations-index .li-item a {
+		height: 100%;
+		padding: 1.75rem;
+		border: 1px solid #e3e9e9;
+		border-radius: 0.5rem;
+		background-color: #fff;
+		text-decoration: none;
+		display: flex;
+		flex-direction: column;
+		gap: 0.5rem;
+		transition: border-color 0.3s, box-shadow 0.3s, transform 0.3s;
+	}
+
+	#locations-index .li-item a:hover {
+		border-color: var(--primary);
+		box-shadow: 0 12px 40px -18px rgba(26, 43, 46, 0.35);
+		transform: translateY(-2px);
+	}
+
+	#locations-index .li-county {
+		font-size: 0.75rem;
+		font-weight: 700;
+		letter-spacing: 0.08em;
+		text-transform: uppercase;
+		color: var(--primary);
+	}
+
+	#locations-index .li-item h3 {
+		font-size: 1.375rem;
+		line-height: 1.2em;
+		font-weight: 700;
+		margin: 0;
+		color: var(--headerColor);
+	}
+
+	#locations-index .li-item p {
+		font-size: 0.9375rem;
+		line-height: 1.5em;
+		margin: 0;
+		color: var(--bodyTextColor);
+		flex-grow: 1;
+	}
+
+	#locations-index .li-link {
+		font-size: 0.9375rem;
+		font-weight: 700;
+		color: var(--primary);
+		margin-top: 0.5rem;
+	}
+
+	@media only screen and (prefers-reduced-motion: reduce) {
+		#locations-index .li-item a {
+			transition: none;
+		}
+
+		#locations-index .li-item a:hover {
+			transform: none;
+		}
+	}
+
+	/* Tablet - 768px */
+	@media only screen and (min-width: 48rem) {
+		#locations-index .li-grid {
+			grid-template-columns: repeat(2, 1fr);
+		}
+	}
+
+	/* Small Desktop - 1024px */
+	@media only screen and (min-width: 64rem) {
+		#locations-index .li-grid {
+			grid-template-columns: repeat(3, 1fr);
+		}
+	}
+</style>

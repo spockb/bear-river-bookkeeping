@@ -10,5 +10,13 @@
   {
     "key": "Services",
     "url": "/services/"
+  },
+  {
+    "key": "Service Areas",
+    "url": "/locations/"
+  },
+  {
+    "key": "Contact",
+    "url": "/contact/"
   }
 ]

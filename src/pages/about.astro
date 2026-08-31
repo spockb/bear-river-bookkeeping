@@ -2,15 +2,18 @@
 import Layout from '../layouts/Layout.astro';
 import AboutComponent from '../components/AboutComponent.astro'
 import CTA from '../components/CTA.astro';
+import riverImage from "../assets/river.jpg";
 import Landing from '../components/Landing.astro';
 ---
 
 <Layout
-	title=`About Us | Professional Bookkeeping Services | Bear River Bookkeeping | Coeur d'Alene, ID`
-	description="Meet Rhonda Crockett, owner and lead bookkeeper at Bear River Bookkeeping. With 25+ years of experience and 17 years in a CPA office, we specialize in helping small service businesses stay organized and tax-ready."
+	title="About Us | Meet Rhonda Crockett"
+	description="Meet Rhonda Crockett, owner and lead bookkeeper at Bear River Bookkeeping in Rathdrum, ID. 25+ years of experience, including 17 years in a CPA office."
+	schemaType="AboutPage"
+	breadcrumb={[{ name: "Home", path: "/" }, { name: "About Us", path: "/about/" }]}
 	>
-    <Landing title="About Us" image="/images/river.jpg" alt="river"/>
-    <AboutComponent CTAtext="Contact Us" CTAlink="/contact" />
+    <Landing title="About Us" image={riverImage}/>
+    <AboutComponent CTAtext="Contact Us" CTAlink="/contact/" />
     <CTA />
 
 </Layout>

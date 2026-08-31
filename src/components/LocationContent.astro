@@ -1,0 +1,256 @@
+---
+import client from "../assets/client.json";
+import services from "../assets/services.json";
+
+const { location } = Astro.props;
+const { city, state, county, intro, angleHeading, angleBody, industries } = location;
+---
+
+<section id="location-content">
+    <div class="loc-container">
+        <div class="loc-main">
+            <span class="cs-topper">{county}</span>
+            <h2 class="cs-title">Working with {city} business owners</h2>
+            {intro.map((paragraph) => <p class="cs-text">{paragraph}</p>)}
+
+            <div class="loc-angle">
+                <h3>{angleHeading}</h3>
+                {angleBody.map((paragraph) => <p>{paragraph}</p>)}
+            </div>
+
+            <h3 class="loc-subhead">What we handle for {city} clients</h3>
+            <ul class="loc-services">
+                {
+                    services.map((service) => (
+                        <li>
+                            <strong>{service.name}</strong>
+                            <span>{service.description}</span>
+                        </li>
+                    ))
+                }
+            </ul>
+        </div>
+
+        <aside class="loc-aside">
+            <div class="loc-card">
+                <h3>{city} businesses we work with</h3>
+                <ul class="loc-industries">
+                    {industries.map((industry) => <li>{industry}</li>)}
+                </ul>
+            </div>
+
+            <div class="loc-card loc-card-cta">
+                <h3>Serving {city}, {state}</h3>
+                <p>
+                    Based in {client.address.city}, {client.address.state} — working with
+                    {" "}{city} clients in person and remotely. The first conversation is free
+                    and there is no obligation attached to it.
+                </p>
+                <a href="/contact/" class="loc-button">Request a free consultation</a>
+                <a href={`tel:${client.phoneForTel}`} class="loc-phone">{client.phoneFormatted}</a>
+            </div>
+        </aside>
+    </div>
+</section>
+
+<style>
+    #location-content {
+        padding: var(--sectionPadding);
+    }
+
+    #location-content .loc-container {
+        width: 100%;
+        max-width: 80rem;
+        margin: auto;
+        display: flex;
+        flex-direction: column;
+        gap: 3rem;
+    }
+
+    #location-content .loc-main {
+        max-width: 43.75rem;
+    }
+
+    #location-content .cs-text {
+        margin-bottom: 1rem;
+    }
+
+    #location-content .loc-angle {
+        margin: 2.5rem 0;
+        padding: 1.75rem;
+        background-color: var(--secondaryLight);
+        border-left: 4px solid var(--primary);
+        border-radius: 0.25rem;
+    }
+
+    #location-content .loc-angle h3 {
+        font-size: 1.25rem;
+        line-height: 1.3em;
+        font-weight: 700;
+        margin: 0 0 0.75rem 0;
+        color: var(--headerColor);
+    }
+
+    #location-content .loc-angle p {
+        font-size: 1rem;
+        line-height: 1.5em;
+        margin: 0;
+        color: var(--bodyTextColor);
+    }
+
+    #location-content .loc-angle p + p {
+        margin-top: 0.85rem;
+    }
+
+    #location-content .loc-subhead {
+        font-size: 1.25rem;
+        font-weight: 700;
+        margin: 2.5rem 0 1rem 0;
+        color: var(--headerColor);
+    }
+
+    #location-content .loc-services {
+        margin: 0;
+        padding: 0;
+        list-style: none;
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+    }
+
+    #location-content .loc-services li {
+        display: flex;
+        flex-direction: column;
+        gap: 0.2rem;
+        padding-left: 1.25rem;
+        border-left: 2px solid var(--primaryLight);
+    }
+
+    #location-content .loc-services strong {
+        font-size: 1rem;
+        color: var(--headerColor);
+    }
+
+    #location-content .loc-services span {
+        font-size: 0.9375rem;
+        line-height: 1.5em;
+        color: var(--bodyTextColor);
+    }
+
+    #location-content .loc-aside {
+        display: flex;
+        flex-direction: column;
+        gap: 1.5rem;
+    }
+
+    #location-content .loc-card {
+        padding: 1.75rem;
+        border: 1px solid #e3e9e9;
+        border-radius: 0.5rem;
+        background-color: #fff;
+    }
+
+    #location-content .loc-card h3 {
+        font-size: 1.125rem;
+        line-height: 1.3em;
+        font-weight: 700;
+        margin: 0 0 1rem 0;
+        color: var(--headerColor);
+    }
+
+    #location-content .loc-industries {
+        margin: 0;
+        padding: 0;
+        list-style: none;
+        display: flex;
+        flex-direction: column;
+        gap: 0.6rem;
+    }
+
+    #location-content .loc-industries li {
+        font-size: 0.9375rem;
+        line-height: 1.4em;
+        color: var(--bodyTextColor);
+        padding-left: 1.1rem;
+        position: relative;
+    }
+
+    #location-content .loc-industries li:before {
+        content: "";
+        width: 0.4rem;
+        height: 0.4rem;
+        border-radius: 50%;
+        background-color: var(--primary);
+        position: absolute;
+        left: 0;
+        top: 0.45rem;
+    }
+
+    #location-content .loc-card-cta {
+        background-color: var(--headerColor);
+        border-color: var(--headerColor);
+    }
+
+    #location-content .loc-card-cta h3 {
+        color: var(--bodyTextColorWhite);
+    }
+
+    #location-content .loc-card-cta p {
+        font-size: 0.9375rem;
+        line-height: 1.5em;
+        margin: 0 0 1.25rem 0;
+        color: var(--bodyTextColorWhite);
+        opacity: 0.9;
+    }
+
+    #location-content .loc-button {
+        font-size: 1rem;
+        font-weight: 700;
+        line-height: 2.875rem;
+        text-align: center;
+        text-decoration: none;
+        color: #fff;
+        background-color: var(--primary);
+        border-radius: 0.25rem;
+        padding: 0 1.25rem;
+        display: block;
+        transition: background-color 0.3s;
+    }
+
+    #location-content .loc-button:hover {
+        background-color: #3c8c8c;
+    }
+
+    #location-content .loc-phone {
+        font-size: 1rem;
+        font-weight: 700;
+        text-align: center;
+        text-decoration: none;
+        color: var(--bodyTextColorWhite);
+        margin-top: 0.9rem;
+        display: block;
+    }
+
+    #location-content .loc-phone:hover {
+        text-decoration: underline;
+    }
+
+    /* Small Desktop - 1024px */
+    @media only screen and (min-width: 64rem) {
+        #location-content .loc-container {
+            flex-direction: row;
+            align-items: flex-start;
+            gap: 3.75rem;
+        }
+
+        #location-content .loc-main {
+            flex: 1;
+        }
+
+        #location-content .loc-aside {
+            flex: 0 0 21.25rem;
+            position: sticky;
+            top: 7rem;
+        }
+    }
+</style>

@@ -57,7 +57,7 @@ import client from "../assets/client.json"
             <!--Address-->
             <div class="cs-flex">
                 <span class="cs-header">Our Location</span>
-                <a href="" class="cs-link">{client.address.city}, {client.address.state} {client.address.zip}</a>
+                <a href={client.address.mapLink} class="cs-link" target="_blank" rel="noopener">{client.address.city}, {client.address.state} {client.address.zip}</a>
             </div>
             <!--Contacts-->
             <div class="cs-flex">

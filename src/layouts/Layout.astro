@@ -2,9 +2,48 @@
 import client from "../assets/client.json";
 import Navbar from "../components/Navbar.astro";
 import Footer from "../components/Footer.astro";
+import {
+  abs,
+  graph,
+  businessNode,
+  websiteNode,
+  webPageNode,
+  breadcrumbNode,
+  faqNode,
+} from "../lib/schema.js";
 
-// Receiving and destructuring props from the .astro pages
-const { description, title, preloadedImage } = Astro.props;
+const {
+  // Page-specific title. The brand name is appended once, here — pages must not repeat it.
+  title,
+  description,
+  // Optional: [{ name, path }] starting at Home. Renders BreadcrumbList structured data.
+  breadcrumb,
+  // Set on the page that renders the visible FAQ so FAQPage markup matches what's on screen.
+  includeFaq = false,
+  // Service pages render their own accordion and pass its items here.
+  faqItems = null,
+  schemaType = "WebPage",
+  ogImage = "/images/og-default.jpg",
+  // Error pages should stay out of the index but still pass link equity.
+  noindex = false,
+  // Extra JSON-LD nodes merged into this page's @graph (location pages pass a Service).
+  extraSchema = [],
+} = Astro.props;
+
+const path = Astro.url.pathname;
+const canonical = abs(path);
+const fullTitle = `${title} | ${client.name}`;
+const ogImageUrl = abs(ogImage);
+
+// One connected @graph per page rather than several disconnected script tags.
+const jsonLd = graph([
+  businessNode(),
+  websiteNode(),
+  webPageNode({ path, title: fullTitle, description, type: schemaType }),
+  breadcrumb ? breadcrumbNode(breadcrumb) : null,
+  faqItems ? faqNode(faqItems, path) : includeFaq ? faqNode() : null,
+  ...extraSchema,
+]);
 ---
 
 <!-- A fully fleshed-out <head>, dynamically changing based on client.json and the page front matter -->
@@ -14,42 +53,50 @@ const { description, title, preloadedImage } = Astro.props;
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{fullTitle}</title>
     <meta name="description" content={description} />
-    <meta name="keywords" content="" />
-    <link rel="canonical" href={`https://${client.domain}${Astro.url.pathname}`} />
+    <meta
+      name="robots"
+      content={noindex
+        ? "noindex, follow"
+        : "index, follow, max-image-preview:large, max-snippet:-1"}
+    />
+    <meta name="author" content={client.name} />
+    <meta name="theme-color" content="#4DA6A6" />
+    <link rel="canonical" href={canonical} />
     <link rel="sitemap" href="/sitemap-index.xml" />
 
+    <!-- The card icons and graphics are served from this CDN; warm the connection early -->
+    <link rel="preconnect" href="https://csimg.nyc3.cdn.digitaloceanspaces.com" crossorigin />
+
     <!-- Social Media Display -->
-    <meta property="og:title" content={title} />
+    <meta property="og:site_name" content={client.name} />
+    <meta property="og:locale" content="en_US" />
+    <meta property="og:title" content={fullTitle} />
     <meta property="og:description" content={description} />
     <meta property="og:type" content="website" />
-    <meta property="og:url" content={`https://${client.domain}${Astro.url.pathname}`} />
-    <meta property="og:image" content={`https://${client.domain}/images/BearRiver.png`} />
-    <meta property="og:image:secure_url" content={`https://${client.domain}/images/BearRiver.png`} />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:image" content={ogImageUrl} />
+    <meta property="og:image:secure_url" content={ogImageUrl} />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content={`${client.name} — ${client.tagline}`} />
 
-	<!-- Favicons -->
-  <link rel="icon" type="image/png" href="/favicon-96x96.png" sizes="96x96" />
-  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-  <link rel="shortcut icon" href="/favicon.ico" />
-  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
-  <meta name="apple-mobile-web-app-title" content="Bear River Bookkeeping" />
-  <link rel="manifest" href="/site.webmanifest" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={fullTitle} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={ogImageUrl} />
 
-    <title>
-      {
-        Astro.url.pathname === "/"
-          ? `${title}
-                |
-                ${client.name}
-                |
-                ${client.address.city},
-                ${client.address.state}`
-          : `${title}
-                    |
-                    ${client.name}`
-      }
-    </title>
+    <!-- Favicons -->
+    <link rel="icon" type="image/png" href="/favicon-96x96.png" sizes="96x96" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="shortcut icon" href="/favicon.ico" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+    <meta name="apple-mobile-web-app-title" content="Bear River Bookkeeping" />
+    <link rel="manifest" href="/site.webmanifest" />
 
+    <!-- Structured data (JSON-LD) describing the business, this page, and its content -->
+    <script type="application/ld+json" set:html={JSON.stringify(jsonLd)} is:inline />
   </head>
 
   <body>

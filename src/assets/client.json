@@ -1,15 +1,53 @@
 {
   "name": "Bear River Bookkeeping",
+  "tagline": "Bookkeeping for small service businesses",
+  "description": "Bear River Bookkeeping provides monthly reconciliation, financial reports, payroll processing, 1099 filing, and clean-up services for small service businesses. Based in Rathdrum, Idaho, serving North Idaho locally and clients nationwide remotely.",
+  "founder": "Rhonda Crockett",
+  "founderTitle": "Owner & Lead Bookkeeper",
   "email": "bearriverbookkeeping@gmail.com",
   "phoneForTel": "208-352-2285",
   "phoneFormatted": "(208) 352-2285",
+  "phoneE164": "+1-208-352-2285",
+  "priceRange": "$$",
   "address": {
     "lineOne": "",
     "lineTwo": "",
     "city": "Rathdrum",
     "state": "ID",
     "zip": "83858",
-    "mapLink": "https://maps.app.goo.gl/umutohM9LfnrwpyMA"
+    "country": "US",
+    "mapLink": "https://maps.app.goo.gl/ggKeCXa17E3uJFnX7"
+  },
+  "geo": {
+    "latitude": 47.8121,
+    "longitude": -116.8957
+  },
+  "serviceArea": [
+    "Rathdrum, ID",
+    "Coeur d'Alene, ID",
+    "Post Falls, ID",
+    "Hayden, ID",
+    "Sandpoint, ID",
+    "Spokane, WA",
+    "United States"
+  ],
+  "openingHours": [
+    {
+      "days": [
+        "Monday",
+        "Tuesday",
+        "Wednesday",
+        "Thursday",
+        "Friday"
+      ],
+      "opens": "09:00",
+      "closes": "17:00"
+    }
+  ],
+  "profiles": {
+    "googleBusiness": "https://maps.google.com/?cid=2692961592809847155",
+    "facebook": "",
+    "linkedin": ""
   },
   "domain": "www.bearriverbookkeeping.com"
 }

@@ -1,12 +1,16 @@
 ---
 import ContactForm from "../components/ContactForm.astro";
+import riverImage from "../assets/river.jpg";
 import Landing from "../components/Landing.astro";
 import Layout from "../layouts/Layout.astro";
 ---
 
 <Layout
-title=`Contact Us | Professional Bookkeeping Services | Bear River Bookkeeping | Coeur d'Alene, ID`
-	description="Contact Bear River Bookkeeping to request a free consultation or personalized quote. We serve small businesses in North Idaho and remotely across the U.S.">
-    <Landing title="Contact Us" image="/images/river.jpg" alt="river"/>
+	title="Contact Us | Free Bookkeeping Consultation"
+	description="Contact Bear River Bookkeeping in Rathdrum, ID for a free consultation or personalized quote. Serving North Idaho locally and clients nationwide."
+	schemaType="ContactPage"
+	breadcrumb={[{ name: "Home", path: "/" }, { name: "Contact Us", path: "/contact/" }]}
+	>
+    <Landing title="Contact Us" image={riverImage}/>
     <ContactForm />
 </Layout>

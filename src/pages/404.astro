@@ -1,0 +1,110 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Landing from "../components/Landing.astro";
+import CTA from "../components/CTA.astro";
+import riverImage from "../assets/river.jpg";
+import client from "../assets/client.json";
+---
+
+<Layout
+	title="Page Not Found"
+	description="That page doesn't exist. Find bookkeeping services, service areas, and contact details for Bear River Bookkeeping."
+	noindex={true}
+	>
+	<Landing title="Page Not Found" image={riverImage} />
+
+	<section id="not-found">
+		<div class="nf-container">
+			<span class="cs-topper">Error 404</span>
+			<h2 class="cs-title">We couldn't find that page</h2>
+			<p class="cs-text">
+				The link may be out of date, or the address may have a typo in it. Here's
+				where you were probably headed:
+			</p>
+
+			<ul class="nf-links">
+				<li><a href="/">Home</a><span>Bookkeeping for small service businesses</span></li>
+				<li><a href="/services/">Services</a><span>Reconciliation, reports, payroll, 1099s, and clean-up</span></li>
+				<li><a href="/locations/">Service Areas</a><span>Where we work across North Idaho and eastern Washington</span></li>
+				<li><a href="/about/">About Us</a><span>Meet Rhonda Crockett</span></li>
+				<li><a href="/contact/">Contact</a><span>Request a free consultation or a quote</span></li>
+			</ul>
+
+			<p class="cs-text nf-help">
+				Still stuck? Call <a href={`tel:${client.phoneForTel}`}>{client.phoneFormatted}</a>
+				or email <a href={`mailto:${client.email}`}>{client.email}</a> and we'll point you
+				in the right direction.
+			</p>
+		</div>
+	</section>
+
+	<CTA />
+</Layout>
+
+<style>
+	#not-found {
+		padding: var(--sectionPadding);
+	}
+
+	#not-found .nf-container {
+		width: 100%;
+		max-width: 46.25rem;
+		margin: auto;
+	}
+
+	#not-found .nf-links {
+		margin: 2rem 0 0;
+		padding: 0;
+		list-style: none;
+		border-top: 1px solid #e3e9e9;
+	}
+
+	#not-found .nf-links li {
+		display: flex;
+		flex-direction: column;
+		gap: 0.15rem;
+		padding: 0.9rem 0;
+		border-bottom: 1px solid #e3e9e9;
+	}
+
+	#not-found .nf-links a {
+		font-size: 1.0625rem;
+		font-weight: 700;
+		color: var(--headerColor);
+		text-decoration: none;
+		width: fit-content;
+	}
+
+	#not-found .nf-links a:hover {
+		color: var(--primary);
+		text-decoration: underline;
+	}
+
+	#not-found .nf-links span {
+		font-size: 0.9375rem;
+		line-height: 1.5em;
+		color: var(--bodyTextColor);
+	}
+
+	#not-found .nf-help {
+		margin-top: 2rem;
+	}
+
+	#not-found .nf-help a {
+		color: var(--primary);
+		font-weight: 700;
+	}
+
+	/* Tablet - 768px */
+	@media only screen and (min-width: 48rem) {
+		#not-found .nf-links li {
+			flex-direction: row;
+			align-items: baseline;
+			gap: 1.25rem;
+		}
+
+		#not-found .nf-links a {
+			flex: 0 0 9.5rem;
+		}
+	}
+</style>

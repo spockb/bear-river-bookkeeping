@@ -1,5 +1,5 @@
 ---
-
+import faqs from "../assets/faqs.json";
 ---
 
 <section id="faq-254">
@@ -13,44 +13,21 @@
         </div>
         <div class="cs-flex-group">
             <ul class="cs-faq-group">
-                <!-- Active class added as default -->
-                <li class="cs-faq-item active">
-                    <button class="cs-button">Do you work with businesses outside North Idaho?</button>
-                    <p class="cs-item-p">
-                        Yes! While we're based in North Idaho and serve the Coeur d'Alene, Rathdrum, Post Falls, Spokane, Hayden, and Sandpoint areas locally, we also offer remote bookkeeping services to small businesses nationwide. 
-                    </p>
-                </li>
-                <li class="cs-faq-item">
-                    <button class="cs-button">How quickly can you get my books caught up?</button>
-                    <p class="cs-item-p">
-                        Most catch-up projects are completed within 2-4 weeks, depending on the volume and complexity of your records. We'll give you a clear timeline during your free consultation.
-                    </p>
-                </li>
-                <li class="cs-faq-item">
-                    <button class="cs-button">What if I don't have all my receipts organized?</button>
-                    <p class="cs-item-p">
-                        No problem! Part of our service includes helping you get organized. We'll work with whatever records you have and help you establish systems to stay organized going forward. 
-                    </p>
-                </li>
-                <li class="cs-faq-item">
-                    <button class="cs-button">Do you work with my CPA or tax preparer?</button>
-                    <p class="cs-item-p">
-                        Absolutely. Thanks to my 17 years of experience in a CPA office, I know exactly how to structure your books to make tax preparation smooth and efficient for your tax professional.
-                    </p>
-                </li>
-                <li class="cs-faq-item">
-                    <button class="cs-button">How much do your services cost?</button>
-                    <p class="cs-item-p">
-                        On average, our clients pay $300-$500 per month for bookkeeping. Clean-up projects are priced separately, and all services are quoted individually based on your business needs.
-                    </p>
-                </li>
+                {
+                    faqs.map((faq, i) => (
+                        <li class:list={["cs-faq-item", { active: i === 0 }]}>
+                            <button class="cs-button">{faq.question}</button>
+                            <p class="cs-item-p">{faq.answer}</p>
+                        </li>
+                    ))
+                }
             </ul>
             <div class="cs-cta">
                 <h3 class="cs-h3">Don't see the answer you need?</h3>
                 <p class="cs-cta-p">
                     That's okay. Just send us a message and we'll get back to you ASAP.
                 </p>
-                <a href="/contact" class="cs-button-solid">Contact us</a>
+                <a href="/contact/" class="cs-button-solid">Contact us</a>
             </div>
         </div>
     </div>

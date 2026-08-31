@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://www.bearriverbookkeeping.com/sitemap-index.xml
