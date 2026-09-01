@@ -8,8 +8,12 @@
     "description": "Monthly profit & loss statements, balance sheets, and cash flow reports written in plain language so you can make informed decisions about your business."
   },
   {
-    "name": "Payroll Processing & 1099 Filing",
-    "description": "Wage and deduction calculations, tax compliance, quarterly reports, and year-end 1099 filings handled accurately and on time."
+    "name": "Payroll Setup & Support",
+    "description": "We get you set up correctly on Gusto, sort out worker classification, and keep the payroll entries reconciled against your books. Gusto runs the payroll itself."
+  },
+  {
+    "name": "1099 Filing",
+    "description": "W-9 collection, year-round contractor tracking, and year-end 1099-NEC preparation and filing, so the January deadline is a non-event."
   },
   {
     "name": "Book Clean-Up & Catch-Up",

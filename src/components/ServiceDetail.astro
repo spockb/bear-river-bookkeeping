@@ -7,6 +7,7 @@ const {
     signalsHeading, signals,
     processHeading, process,
     includedHeading, included,
+    partner,
     faqs,
 } = service;
 ---
@@ -34,6 +35,31 @@ const {
                     ))
                 }
             </ol>
+
+            {
+                partner && (
+                    <div class="sd-partner">
+                        <h3>{partner.heading}</h3>
+                        <p>{partner.body}</p>
+                        <ul class="sd-partner-features">
+                            {partner.features.map((feature) => <li>{feature}</li>)}
+                        </ul>
+                        <div class="sd-partner-links">
+                            {partner.links.map((link) => (
+                                <a
+                                    href={link.url}
+                                    class:list={["sd-partner-link", { primary: link.primary }]}
+                                    target="_blank"
+                                    rel="noopener"
+                                >
+                                    {link.label}
+                                </a>
+                            ))}
+                        </div>
+                        <p class="sd-disclosure">{partner.disclosure}</p>
+                    </div>
+                )
+            }
 
             <h3 class="sd-heading">Common questions</h3>
             <ul class="sd-faq">
@@ -274,6 +300,92 @@ const {
 
     #service-detail .sd-faq-item.active .sd-faq-answer p {
         padding-bottom: 1.1rem;
+    }
+
+    /* Partner recommendation */
+    #service-detail .sd-partner {
+        margin-top: 2.75rem;
+        padding: 1.75rem;
+        border: 1px solid #dfe7e7;
+        border-radius: 0.5rem;
+        background-color: #fbfdfd;
+    }
+
+    #service-detail .sd-partner h3 {
+        font-size: 1.25rem;
+        line-height: 1.3em;
+        font-weight: 700;
+        margin: 0 0 0.75rem 0;
+        color: var(--headerColor);
+    }
+
+    #service-detail .sd-partner > p {
+        font-size: 0.9688rem;
+        line-height: 1.5em;
+        margin: 0;
+        color: var(--bodyTextColor);
+    }
+
+    #service-detail .sd-partner-features {
+        margin: 1.25rem 0 0;
+        padding: 0;
+        list-style: none;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.5rem;
+    }
+
+    #service-detail .sd-partner-features li {
+        font-size: 0.875rem;
+        line-height: 1.4em;
+        color: var(--headerColor);
+        background-color: var(--secondaryLight);
+        border-radius: 1rem;
+        padding: 0.3rem 0.75rem;
+    }
+
+    #service-detail .sd-partner-links {
+        margin-top: 1.5rem;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.75rem;
+    }
+
+    #service-detail .sd-partner-link {
+        font-size: 0.9375rem;
+        font-weight: 700;
+        line-height: 2.75rem;
+        text-decoration: none;
+        text-align: center;
+        color: var(--primary);
+        background-color: #fff;
+        border: 1px solid var(--primary);
+        border-radius: 0.25rem;
+        padding: 0 1.25rem;
+        transition: background-color 0.3s, color 0.3s;
+    }
+
+    #service-detail .sd-partner-link:hover {
+        background-color: var(--secondaryLight);
+    }
+
+    #service-detail .sd-partner-link.primary {
+        color: #fff;
+        background-color: var(--primary);
+    }
+
+    #service-detail .sd-partner-link.primary:hover {
+        background-color: #3c8c8c;
+    }
+
+    /* Referral disclosure — deliberately plain and not hidden in small print */
+    #service-detail .sd-disclosure {
+        font-size: 0.8438rem;
+        line-height: 1.5em;
+        margin: 1.25rem 0 0 0;
+        padding-top: 1rem;
+        border-top: 1px solid #dfe7e7;
+        color: #5c6e72;
     }
 
     /* Aside */

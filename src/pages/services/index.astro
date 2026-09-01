@@ -8,8 +8,8 @@ import SideBySideRev from '../../components/SideBySideRev.astro';
 ---
 
 <Layout
-	title="Bookkeeping Services: Payroll, 1099 & Clean-Up"
-	description="Monthly reconciliation, financial reports, payroll processing, 1099 filing, and book clean-up for small businesses in North Idaho and nationwide."
+	title="Bookkeeping Services: Reconciliation, Payroll & 1099"
+	description="Monthly reconciliation, financial reports, payroll setup on Gusto, 1099 filing, and book clean-up for small businesses in North Idaho and nationwide."
 	breadcrumb={[{ name: "Home", path: "/" }, { name: "Services", path: "/services/" }]}
 	>
     <Landing title="Services" image={riverImage}/>
@@ -41,19 +41,32 @@ buttonText="See what reports you get"
 />
 
 <SideBySide
-imgSrc="/images/1099form.jpg"
-imgAlt="1099 Form"
+imgSrc="/images/writingcalc.jpg"
+imgAlt="bookkeeper reviewing payroll figures"
 imgWidth="1280"
-imgHeight="853" 
+imgHeight="853"
 topper="Services"
-title="Payroll Processing & 1099 Filing"
-text1="Payroll can be stressful and time-consuming, but it doesn't have to be. We handle everything from calculating wages and deductions to ensuring compliance with tax requirements, so your employees and contractors are paid accurately and on time. Whether you have a small team or multiple contractors, our payroll services are designed to make the process smooth and worry-free."
-text2="At the end of the year, we also take care of 1099 filings so you don't have to worry about missing deadlines or making costly mistakes. With our support, your payroll and year-end reporting will be handled efficiently and correctly, giving you more time to focus on running your business and less time stressing about paperwork."
-buttonRef="/services/payroll-1099/"
-buttonText="Payroll & 1099 in detail"
+title="Payroll Setup & Support"
+text1="We don't run payroll in house, and for almost every small business that's the right answer — a dedicated platform does the job more reliably and for less money than a bookkeeper processing runs by hand. The one we recommend is Gusto, which handles payroll processing, tax filings, direct deposit, employee onboarding, and self-service tools for your team."
+text2="What we do is the part that determines whether payroll actually goes smoothly: getting your account set up and configured, sorting out whether each worker is an employee or a contractor, handling the registrations for every state you operate in, and making sure the payroll entries land cleanly in your books each month. Setup is quoted as a one-time project based on the work involved."
+buttonRef="/services/payroll-setup/"
+buttonText="How payroll setup works"
 />
 
 <SideBySideRev
+imgSrc="/images/1099form.jpg"
+imgAlt="1099 tax form"
+imgWidth="1280"
+imgHeight="853"
+topper="Services"
+title="1099 Filing"
+text1="If you pay independent contractors, you have to report what you paid them, and the deadline lands on January 31 along with everything else year-end brings. We handle the whole thing directly: collecting W-9s as contractors come on board, tracking what each one was paid across every account you pay from, and preparing the filings before the deadline."
+text2="The part that makes January easy is the work done during the year. Sorting out who genuinely needs a 1099, catching contractors who should really be employees, and keeping payments tracked as they happen all mean the year-end filing is a report you pull rather than a reconstruction you attempt under time pressure."
+buttonRef="/services/1099-filing/"
+buttonText="1099 filing in detail"
+/>
+
+<SideBySide
 imgSrc="/images/redpolish.jpg"
 imgAlt="woman using laptop"
 imgWidth="1280"

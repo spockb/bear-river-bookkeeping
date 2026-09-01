@@ -156,80 +156,182 @@
     ]
   },
   {
-    "slug": "payroll-1099",
-    "navLabel": "Payroll & 1099 Filing",
-    "name": "Payroll Processing & 1099 Filing",
-    "metaTitle": "Payroll Processing & 1099 Filing",
-    "metaDescription": "Payroll processing and year-end 1099 filing for small businesses. Wages, withholding, quarterly returns, and contractor reporting handled on time.",
-    "heading": "Payroll Processing & 1099 Filing",
-    "topper": "Deadlines and compliance",
+    "slug": "payroll-setup",
+    "navLabel": "Payroll Setup & Support",
+    "name": "Payroll Setup & Support",
+    "metaTitle": "Payroll Setup & Gusto Support",
+    "metaDescription": "We don't run payroll in house — we get you set up correctly on Gusto, classify your workers, and keep payroll reconciled against your books.",
+    "heading": "Payroll Setup & Support",
+    "topper": "Getting payroll right from the start",
     "intro": [
-      "Payroll is the part of bookkeeping with hard deadlines and real penalties attached to them. Wages have to be right, withholding has to be right, and quarterly filings have to land on time whether or not you had a brutal month.",
-      "We run payroll and handle year-end contractor reporting so those deadlines stop being something you carry. The work is deliberately front-loaded: the decisions that cause expensive problems are made at setup, not in January."
+      "We do not run payroll in house. For almost every small business we work with, a dedicated payroll platform does the job better and for less money than a bookkeeper processing runs by hand — and the one we recommend is Gusto.",
+      "What we do is the part that actually determines whether payroll goes smoothly: getting it set up correctly, classifying your workers properly, configuring it for the states you operate in, and making sure the payroll entries land cleanly in your books every month."
     ],
-    "signalsHeading": "You probably need help with payroll if",
+    "signalsHeading": "You probably need setup help if",
     "signals": [
       "You just hired your first employee and are not certain what changes",
-      "You pay subcontractors and are unsure which of them need a 1099",
-      "You have missed a quarterly filing or paid a late penalty",
+      "You are running payroll by hand and it is eating real hours",
       "You have workers in more than one state",
-      "You are running payroll manually and it is eating real hours",
-      "Your contractor payments get reconstructed every January instead of tracked all year"
+      "You are unsure whether someone should be an employee or a contractor",
+      "Payroll runs, but the entries never reconcile against your books",
+      "You signed up for a payroll platform and stalled partway through setup"
     ],
-    "processHeading": "How payroll is handled",
+    "processHeading": "How setup works",
     "process": [
       {
-        "title": "Setup and worker classification",
-        "body": "Getting classification right — employee versus independent contractor — is the single most consequential payroll decision you make, and by far the most expensive one to get wrong. We settle it before the first pay run rather than discovering it during an audit."
+        "title": "Worker classification",
+        "body": "Employee versus independent contractor is the single most consequential payroll decision you make, and by far the most expensive one to get wrong. We settle it before anything is configured, rather than discovering it during an audit."
       },
       {
-        "title": "Each pay run",
-        "body": "Wages, hours, deductions, and withholding calculated and processed on whatever schedule you run — weekly, biweekly, semimonthly, or monthly."
+        "title": "Account setup",
+        "body": "Your Gusto account created and configured — company details, state registrations, pay schedules, and the tax settings that depend on where you and your people actually are."
       },
       {
-        "title": "Deposits and quarterly returns",
-        "body": "Payroll tax deposits made on schedule and quarterly returns filed on time, so nothing quietly accrues penalties in the background while you are busy running the business."
+        "title": "Employee onboarding",
+        "body": "Your team added and onboarded, with self-service access so they can handle their own details, pull their own pay stubs, and get their W-2 without going through you."
       },
       {
-        "title": "Year-round contractor tracking",
-        "body": "W-9s are collected when a contractor starts, not chased down in January when half of them have moved on and stopped answering. Payments are tracked by contractor throughout the year so the year-end filing is a report, not a reconstruction."
+        "title": "Payroll configuration",
+        "body": "Pay rates, deductions, benefits, and direct deposit configured and tested, so the first real run is not the first time anything gets checked."
       },
       {
-        "title": "Year-end filings",
-        "body": "W-2s and 1099-NECs prepared, filed with the appropriate agencies, and distributed to your people ahead of the deadline."
+        "title": "Connecting it to your books",
+        "body": "Payroll disconnected from the books creates reconciliation work every single month. We make sure the entries flow through correctly and stay reconciled — which is where having the same person handle both genuinely pays off."
       }
     ],
-    "includedHeading": "What payroll service includes",
+    "includedHeading": "What setup includes",
     "included": [
-      "Wage, hour, and deduction calculation",
-      "Federal and state income tax withholding",
-      "Payroll tax deposits on schedule",
-      "Quarterly payroll tax returns",
-      "New hire reporting",
-      "W-9 collection and year-round contractor tracking",
-      "Year-end W-2 preparation and filing",
-      "Year-end 1099-NEC preparation and filing"
+      "Employee versus contractor classification review",
+      "Gusto account setup and company configuration",
+      "State registration guidance for everywhere you operate",
+      "Pay schedule and pay rate configuration",
+      "Employee onboarding and self-service setup",
+      "Direct deposit setup and testing",
+      "Payroll mapped into your chart of accounts",
+      "Ongoing guidance once you are up and running"
+    ],
+    "partner": {
+      "heading": "Why we recommend Gusto",
+      "body": "Gusto's platform is straightforward to use and covers the whole payroll job. For most small businesses it is more reliable, and cheaper, than paying a bookkeeper to process runs by hand.",
+      "features": [
+        "Payroll processing",
+        "Payroll tax filings",
+        "Direct deposit",
+        "Employee onboarding",
+        "Employee self-service tools"
+      ],
+      "links": [
+        {
+          "url": "https://gusto.com/product/pricing",
+          "label": "See Gusto's plans and pricing",
+          "primary": false
+        },
+        {
+          "url": "https://gusto.com/r/rhonda4f1acde1",
+          "label": "Sign up with our referral link",
+          "primary": true
+        }
+      ],
+      "disclosure": "The sign-up link above is a referral link. If you use it, Bear River Bookkeeping receives credit for the referral — it costs you nothing extra and does not change your pricing. We recommend Gusto because we think it is a good fit for most small businesses; the referral is not the reason."
+    },
+    "faqs": [
+      {
+        "question": "Do you run payroll for me?",
+        "answer": "No. Payroll runs through Gusto, which handles the processing, the tax filings, and direct deposit. Our role is getting it set up correctly, keeping worker classification right, and making sure the payroll entries reconcile against your books. For most small businesses that split works out better and costs less than paying a bookkeeper to process runs by hand."
+      },
+      {
+        "question": "What does payroll setup cost?",
+        "answer": "It is quoted as a one-time project based on how much work is involved — how many employees, how many states, and whether you are starting fresh or repairing an existing setup. You get the price before any work begins."
+      },
+      {
+        "question": "What if I have workers in both Idaho and Washington?",
+        "answer": "Multi-state payroll is common along the state line. Where someone lives and where they perform the work drive different withholding and reporting obligations, and we configure payroll to capture both from the start rather than reconstructing crew assignments at year end."
+      },
+      {
+        "question": "Do I have to use Gusto?",
+        "answer": "No. Gusto is what we recommend and know best, but if you are already on another platform we will work with it. The setup, classification, and reconciliation work is much the same either way."
+      },
+      {
+        "question": "What about my contractors and 1099s?",
+        "answer": "1099 filing is something we handle directly, as a separate service — W-9 collection, year-round contractor tracking, and the year-end filing itself. It is covered on our 1099 filing page."
+      }
+    ]
+  },
+  {
+    "slug": "1099-filing",
+    "navLabel": "1099 Filing",
+    "name": "1099 Filing",
+    "metaTitle": "1099 Filing for Contractors",
+    "metaDescription": "W-9 collection, year-round contractor tracking, and year-end 1099-NEC preparation and filing for small businesses. Deadlines met, penalties avoided.",
+    "heading": "1099 Filing",
+    "topper": "Year-end contractor reporting",
+    "intro": [
+      "If you pay independent contractors, you are required to report what you paid them — and the deadline lands at the end of January, on top of everything else that year-end already brings.",
+      "We handle the whole thing: collecting W-9s as contractors come on, tracking what each one was paid across the year, and preparing and filing the 1099s ahead of the deadline."
+    ],
+    "signalsHeading": "You probably need help with 1099s if",
+    "signals": [
+      "You pay subcontractors and are unsure which of them need a 1099",
+      "You chase down W-9s every January instead of collecting them up front",
+      "You have missed a 1099 deadline or paid a late-filing penalty",
+      "You are not certain whether someone should get a 1099 or a W-2",
+      "Contractor payments are scattered across accounts and hard to total",
+      "You pay contractors several different ways and lose track"
+    ],
+    "processHeading": "How 1099 filing works",
+    "process": [
+      {
+        "title": "W-9 collection up front",
+        "body": "The one thing that makes January easy is already having W-9s on file. We collect them when a contractor starts, rather than chasing people down months later when half of them have moved on and stopped answering."
+      },
+      {
+        "title": "Classification check",
+        "body": "Some contractors should be employees, and some payees do not need a 1099 at all. We sort out who is who during the year rather than at the deadline, when getting it wrong becomes expensive."
+      },
+      {
+        "title": "Year-round tracking",
+        "body": "Contractor payments are tracked by payee as they happen, across every account you pay from, so the year-end total is a report you pull rather than a reconstruction you attempt."
+      },
+      {
+        "title": "Preparation and your review",
+        "body": "We prepare the 1099s and send them to you before anything is filed. Corrections are far cheaper before submission than after."
+      },
+      {
+        "title": "Filing and distribution",
+        "body": "Filed with the IRS and distributed to your contractors ahead of the January 31 deadline."
+      }
+    ],
+    "includedHeading": "What 1099 filing includes",
+    "included": [
+      "W-9 collection and record keeping",
+      "Contractor versus employee classification review",
+      "Year-round tracking of contractor payments",
+      "Identifying which payees actually require a 1099",
+      "1099-NEC preparation",
+      "Your review before anything is filed",
+      "Filing with the IRS",
+      "Distribution to your contractors"
     ],
     "faqs": [
       {
         "question": "Which contractors actually need a 1099?",
-        "answer": "Generally, unincorporated contractors you paid $600 or more during the year for services. There are exceptions running in both directions, which is exactly why classification and up-front W-9 collection matter more than the year-end filing itself."
+        "answer": "Generally, unincorporated contractors you paid $600 or more during the year for services. There are exceptions running in both directions, which is exactly why classification and up-front W-9 collection matter more than the filing itself."
       },
       {
-        "question": "What if I have workers in both Idaho and Washington?",
-        "answer": "Multi-state payroll is common along the state line. Where someone lives and where they perform the work drive different withholding and reporting obligations, and we set payroll up to capture both from the start rather than reconstructing crew assignments at year end."
+        "question": "When is the deadline?",
+        "answer": "1099-NEC forms are due to both the recipient and the IRS by January 31. It is a hard deadline with penalties attached, and it does not move because you had a busy month."
       },
       {
-        "question": "I missed a quarterly filing. Can you fix it?",
-        "answer": "Yes. We will get the outstanding filings caught up and put a schedule in place so it does not repeat. Missed filings are far cheaper to address early than to leave accruing."
+        "question": "What if I never collected a W-9?",
+        "answer": "We will help you get them now. It is harder once someone has moved on, but it is a solvable problem and considerably better than filing without the information or not filing at all."
       },
       {
-        "question": "Do you handle workers' compensation reporting?",
-        "answer": "We track the underlying data it depends on — hours worked for Washington L&I, wages for Idaho — and prepare the reporting from it, so the numbers come out of your books rather than out of a spreadsheet somebody maintains by hand."
+        "question": "What if I have already missed a deadline?",
+        "answer": "A late filing is still worth making. Penalties scale with how late it is, so getting current quickly costs less than waiting. We will get the outstanding filings caught up."
       },
       {
-        "question": "Can payroll be combined with monthly bookkeeping?",
-        "answer": "Yes, and it usually should be. Payroll run separately from the books creates reconciliation work later, because the payroll entries still have to land correctly in your financial statements."
+        "question": "Do you still handle 1099s if my contractors are paid through Gusto?",
+        "answer": "Yes. We handle 1099 filing directly either way. Having contractor payments already tracked in one place just makes it simpler."
       }
     ]
   }
