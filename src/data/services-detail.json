@@ -253,7 +253,7 @@
       },
       {
         "question": "What about my contractors and 1099s?",
-        "answer": "1099 filing is something we handle directly, as a separate service — W-9 collection, year-round contractor tracking, and the year-end filing itself. It is covered on our 1099 filing page."
+        "answer": "1099 filing is something we handle directly, as a separate service. You collect the W-9s from your contractors; we track the payments through the year and prepare and file the 1099s in January. It is covered on our 1099 filing page."
       }
     ]
   },
@@ -262,17 +262,17 @@
     "navLabel": "1099 Filing",
     "name": "1099 Filing",
     "metaTitle": "1099 Filing for Contractors",
-    "metaDescription": "W-9 collection, year-round contractor tracking, and year-end 1099-NEC preparation and filing for small businesses. Deadlines met, penalties avoided.",
+    "metaDescription": "Year-end 1099-NEC preparation and filing for small businesses. You collect the W-9s from your contractors; we track the payments and file in January.",
     "heading": "1099 Filing",
     "topper": "Year-end contractor reporting",
     "intro": [
       "If you pay independent contractors, you are required to report what you paid them — and the deadline lands at the end of January, on top of everything else that year-end already brings.",
-      "We handle the whole thing: collecting W-9s as contractors come on, tracking what each one was paid across the year, and preparing and filing the 1099s ahead of the deadline."
+      "The division of labor is simple. You collect a W-9 from each contractor you hire — they are your people, and the request lands better coming from you. We track what each one was paid across the year, tell you who is missing a W-9 while there is still time to ask, and prepare and file the 1099s in January."
     ],
     "signalsHeading": "You probably need help with 1099s if",
     "signals": [
       "You pay subcontractors and are unsure which of them need a 1099",
-      "You chase down W-9s every January instead of collecting them up front",
+      "You are chasing contractors for W-9s in January instead of at hire",
       "You have missed a 1099 deadline or paid a late-filing penalty",
       "You are not certain whether someone should get a 1099 or a W-2",
       "Contractor payments are scattered across accounts and hard to total",
@@ -281,8 +281,8 @@
     "processHeading": "How 1099 filing works",
     "process": [
       {
-        "title": "W-9 collection up front",
-        "body": "The one thing that makes January easy is already having W-9s on file. We collect them when a contractor starts, rather than chasing people down months later when half of them have moved on and stopped answering."
+        "title": "You collect the W-9s",
+        "body": "Ask every contractor for a W-9 before you pay them the first time. That one habit is what makes January easy. It has to come from you rather than from us — they are your contractors, and a request from their own client gets answered far more reliably than one from a bookkeeper they have never met. Send them to us as you get them and we will keep them on file."
       },
       {
         "title": "Classification check",
@@ -303,7 +303,8 @@
     ],
     "includedHeading": "What 1099 filing includes",
     "included": [
-      "W-9 collection and record keeping",
+      "Keeping the W-9s you collect on file and organized",
+      "Telling you who is still missing a W-9, with time left to ask",
       "Contractor versus employee classification review",
       "Year-round tracking of contractor payments",
       "Identifying which payees actually require a 1099",
@@ -323,7 +324,7 @@
       },
       {
         "question": "What if I never collected a W-9?",
-        "answer": "We will help you get them now. It is harder once someone has moved on, but it is a solvable problem and considerably better than filing without the information or not filing at all."
+        "answer": "We will tell you exactly which contractors are missing one so you can request it, and we will do that well before January rather than during it. Chasing someone down after they have moved on is harder, but it is a solvable problem and considerably better than filing without the information or not filing at all."
       },
       {
         "question": "What if I have already missed a deadline?",
